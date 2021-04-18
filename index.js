@@ -6,8 +6,8 @@ const fs = require('fs');
 client.commands = new Discord.Collection();
 client.setMaxListeners(0);
 
-const TOKEN = process.env.TOKEN;
-const prefix = ';'
+const TOKEN = "ODMzMjY0Mzc0NjUxMTU4NTUw.YHvz7A.8ih1hT39jfIr6kKjeRNpRa8zhPs";
+const prefix = ';';
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
