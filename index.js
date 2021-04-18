@@ -59,7 +59,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.content.startsWith(`${prefix}unmute`)) {
+    if (message.content.startsWith(`${prefix}warn`)) {
         client.commands.get('warn').execute(message);
     }
 });
