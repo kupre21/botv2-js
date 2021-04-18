@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { getTrailingCommentRanges } = require('typescript');
+
 
 module.exports = {
     name: 'mute',
