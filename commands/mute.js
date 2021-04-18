@@ -7,8 +7,8 @@ module.exports = {
     async execute(message, client) {
         if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply('You don\'t have permission to mute someone'); 
 
-        const mutedRole = message.guild.roles.cache.get('833397440500465705');
-        const memberRole = message.guild.roles.cache.get('833397660148170762');
+        const mutedRole = message.guild.roles.cache.get('833011320181751816');
+        const memberRole = message.guild.roles.cache.get('833011320076369955');
         const target = message.mentions.members.first();
 
 
