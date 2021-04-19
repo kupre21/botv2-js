@@ -6,7 +6,7 @@ module.exports = {
     execute(message) {
         let args = message.content.split(" ").slice(0);
 
-        let say = args.slice(2).join(" ");
+        let say = args.slice(1).join(" ");
 
         let author = message.author;
 

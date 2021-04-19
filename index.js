@@ -70,6 +70,12 @@ client.on('message', message => {
     }
 });
 
+client.on('message', message => {
+    if (message.content.startsWith(`${prefix}help`)) {
+        client.commands.get('help').execute(message);
+    }
+})
+
 
 
 client.login(TOKEN);    
