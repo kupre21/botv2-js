@@ -14,7 +14,11 @@ module.exports = {
             }, {
                 name: 'Fun',
                 value: 'say',
-                inline: true
+                inline: false
+            }, {
+                name: 'Other',
+                value: 'ping',
+                inline: false
             })
             .setTimestamp()
         message.channel.send(Embed);
