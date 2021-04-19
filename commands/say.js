@@ -4,7 +4,7 @@ module.exports = {
     name: 'say',
     description: 'says what user says',
     execute(message) {
-        let args = message.content.split(" ").slice(0);
+        let args = message.content.split(" ").slice(1);
 
         const say = args.join(" "); 
 

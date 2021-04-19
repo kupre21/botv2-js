@@ -8,7 +8,7 @@ module.exports = {
             .setTitle('Ping')
             .addFields({
                 name: 'Ping',
-                value: `current bot ping is ${Math.round(client.ws.ping)}`
+                value: `current bot ping is ${Math.round(client.ws.ping)}ms`
             })
             .setColor('RANDOM')
             .setTimestamp()
