@@ -74,6 +74,12 @@ client.on('message', message => {
     if (message.content.startsWith(`${prefix}help`)) {
         client.commands.get('help').execute(message);
     }
+});
+
+client.on('message', message => {
+    if (message.content.startsWith(`${prefix}ping`)) {
+        client.commands.get('ping').execute(message, client);
+    }
 })
 
 
