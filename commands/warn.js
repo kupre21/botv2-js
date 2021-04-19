@@ -22,6 +22,6 @@ module.exports = {
 
         if (!reason) reason = 'Unspecified';
 
-        return message.channel.send(`${user} is warned`);
+        return message.channel.send(`${user} is warned. Reason: ${reason}`);
     }
 }
