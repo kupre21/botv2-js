@@ -4,12 +4,10 @@ module.exports = {
     name: 'ban',
     description: 'ban people',
     execute(message, client) {
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply('You can\'t use that command.')
+        
         let args = message.content.split(" ").slice(0);
         
-        if (!message.member.hasPermission('BAN_MEMBERS')) {
-            message.channel.send('You don\'t have permission to ban people. ');
-        }
-
         let mentionmember = message.mentions.members.first();
 
         if (!mentionmember) return message.reply('Please tag member that you want to ban. ');  
