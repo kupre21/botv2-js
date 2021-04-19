@@ -16,6 +16,7 @@ module.exports = {
                 value: 'say',
                 inline: true
             })
-            
+            .setTimestamp()
+        message.channel.send(Embed);
     }
 }
