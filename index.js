@@ -83,12 +83,12 @@ client.on('message', message => {
 });
 
 client.on('guildMemberAdd', member => {
-    const channel = member.guild.channels.cache.get('833011320889540610');
+    const channel = member.guild.channels.cache.get('833011320256987160');
     channel.send(`${member} has joined! Hope you'll have fun here`);
 });
 
 client.on('guildMemberRemove', member => {
-    const channel = member.guild.channels.cache.get('833011320889540610');
+    const channel = member.guild.channels.cache.get('833011320256987160');
     channel.send(`${member} has left the server. RIP`);
 })
 
