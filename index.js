@@ -80,6 +80,16 @@ client.on('message', message => {
     if (message.content.startsWith(`${prefix}ping`)) {
         client.commands.get('ping').execute(message, client);
     }
+});
+
+client.on('guildMemberAdd', member => {
+    const channel = member.guild.channels.get('833011320889540610');
+    channel.send(`${member} has joined! Hope you'll have fun here`);
+});
+
+client.on('guildMemberRemove', member => {
+    const channel = member.guild.channels.get('833011320889540610');
+    channel.send(`${member} has left the server. RIP`);
 })
 
 
