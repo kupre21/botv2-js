@@ -7,9 +7,15 @@ module.exports = {
     async execute(message, client) {
         if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply('You don\'t have permission to mute someone'); 
 
+        let args = message.content.split(" ").slice(0);
+
         const mutedRole = message.guild.roles.cache.get('833011320181751816');
         const memberRole = message.guild.roles.cache.get('833011320076369955');
         const target = message.mentions.members.first();
+
+        let reason = args.slice(2).join(" ");
+        
+        if (!reason) return 'reason not provided'
 
 
         if (!target) return message.reply('Please tag user that you want to mute');
@@ -19,10 +25,19 @@ module.exports = {
 
         await target.roles.add(mutedRole.id).catch(err => {
             console.log(err);
-        });
+        }).then(() => {
+            const Embed = new Discord.MessageEmbed()
+                .setTitle(`${target} is muted because: ${reason}`)
+            message.channel.send(Embed);
+        }).catch((err) => {
+            console.log(err); 
+        })
 
         await target.roles.remove(memberRole.id).catch(err => {
             console.log(err);
+        }).then(() => {
+            const Embed = new Discord.MessageEmbed()
+                .setTitle(`User ${target} is unmuted`)
         })
 
         return message.reply(`${target} is muted`);

@@ -82,8 +82,12 @@ client.on('message', message => {
     }
 });
 
-client.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', (member) => {
     const channel = member.guild.channels.cache.get('833011320256987160');
+    const Embed = new Discord.MessageEmbed()
+        .setTitle(`New Member Joined`)
+        .setColor('RANDOM')
+        .setThumbnail()
     channel.send(`${member} has joined! Hope you'll have fun here`);
 });
 
