@@ -13,10 +13,6 @@ module.exports = {
         const memberRole = message.guild.roles.cache.get('833011320076369955');
         const target = message.mentions.members.first();
 
-        let reason = args.slice(2).join(" ");
-        
-        if (!reason) return 'reason not provided'
-
 
         if (!target) return message.reply('Please tag user that you want to mute');
         if (target.user.id == message.author.id) return message.reply('You can\'t mute your self');
@@ -25,21 +21,10 @@ module.exports = {
 
         await target.roles.add(mutedRole.id).catch(err => {
             console.log(err);
-        }).then(() => {
-            const Embed = new Discord.MessageEmbed()
-                .setTitle(`${target} is muted because: ${reason}`)
-            message.channel.send(Embed);
-        }).catch((err) => {
-            console.log(err); 
-        })
+        }); 
 
         await target.roles.remove(memberRole.id).catch(err => {
             console.log(err);
-        }).then(() => {
-            const Embed = new Discord.MessageEmbed()
-                .setTitle(`User ${target} is unmuted`)
         })
-
-        return message.reply(`${target} is muted`);
     }   
 }
