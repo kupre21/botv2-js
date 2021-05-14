@@ -17,7 +17,6 @@ module.exports = {
         const target = message.mentions.members.first();
 
         if (!target) return message.reply('Please tag user that you want to mute');
-        if (target.user.id == message.author.id) return message.reply('You can\'t mute your self');
         if (target.roles.cache.has(mutedRole.id)) return message.reply('That user is already muted');
         if (message.member.roles.highest.position <= target.roles.highest.position) return message.reply('You cannot mute higher rank then you');
 
