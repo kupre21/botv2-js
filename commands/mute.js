@@ -5,7 +5,12 @@ module.exports = {
     name: 'mute',
     description: 'mutes',
     async execute(message, client) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply('You don\'t have permission to mute someone'); 
+        const error_message = new Discord.MessageEmbed()
+            .setTitle('🛑 Error Occured [You might not have Administrator]')
+            .setColor('RED')
+            .setTimestamp()
+
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(error_message); 
 
         let args = message.content.split(" ").slice(0);
 

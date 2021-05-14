@@ -4,7 +4,12 @@ module.exports = {
     name: 'ban',
     description: 'ban people',
     execute(message, client) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply('You can\'t use that command.')
+        const error_message = new Discord.MessageEmbed()
+            .setTitle('🛑 Error Occured [You might not have Administrator]')
+            .setColor('RED')
+            .setTimestamp()
+
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(error_message)
         
         let args = message.content.split(" ").slice(0);
         

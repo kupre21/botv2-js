@@ -4,7 +4,12 @@ module.exports = {
     name: 'lock',
     description: 'security',
     async execute(message) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply('You don\'t have permission to lock channel'); 
+        const error_message = new Discord.MessageEmbed()
+            .setTitle('🛑 Error Occured [You might not have Administrator]')
+            .setColor('RED')
+            .setTimestamp()
+
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(error_message); 
         let channel = message.channel;
         
         channel.overwritePermissions([

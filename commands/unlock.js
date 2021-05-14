@@ -4,7 +4,12 @@ module.exports = {
     name: 'unlock',
     description: 'unlocks',
     execute(message) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply('You don\'t have permission to unlock channel'); 
+        const error_message = new Discord.MessageEmbed()
+            .setTitle('🛑 Error Occured [You might not have Administrator]')
+            .setColor('RED')
+            .setTimestamp()
+
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(error_message); 
         let channel = message.channel;
 
         channel.overwritePermissions([

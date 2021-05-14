@@ -4,9 +4,14 @@ module.exports = {
     name: 'warn',
     descirption: 'warns',
     execute(message) {
+        const error_message = new Discord.MessageEmbed()
+            .setTitle('🛑 Error Occured [You might not have Manage Channels role]')
+            .setColor('RED')
+            .setTimestamp()
+
         let args = message.content.split(" ").slice(0);
 
-        if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send('You can\'t use that.');
+        if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send(error_message);
 
         const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
 

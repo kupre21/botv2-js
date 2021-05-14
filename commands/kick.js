@@ -5,9 +5,14 @@ module.exports = {
     name: 'kick',
     description: 'kick',
     execute(message, client) {
+        const error_message = new Discord.MessageEmbed()
+            .setTitle('🛑 Error Occured [You might not have Administrator]')
+            .setColor('RED')
+            .setTimestamp()
+
         if (!message.member.hasPermission('KICK_MEMBERS')) {
-            message.channel.send('You dont have permissions for that');
-            return;
+            
+            return message.channel.send(error_message);
         }
 
         let mentionmember = message.mentions.members.first();

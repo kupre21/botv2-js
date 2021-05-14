@@ -5,7 +5,12 @@ module.exports = {
     name: 'unmute',
     descirpiton: 'unmutes',
     async execute(message) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply('You don\'t have permission to unmute someone'); 
+        const error_message = new Discord.MessageEmbed()
+            .setTitle('🛑 Error Occured [You might not have Manage Channels role]')
+            .setColor('RED')
+            .setTimestamp()
+
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(error_message); 
 
         const mutedRole = message.guild.roles.cache.get('833011320181751816');
         const memberRole = message.guild.roles.cache.get('833011320076369955');
