@@ -12,12 +12,9 @@ module.exports = {
 
         if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(error_message); 
 
-        let args = message.content.split(" ").slice(0);
-
         const mutedRole = message.guild.roles.cache.get('833011320181751816');
         const memberRole = message.guild.roles.cache.get('833011320076369955');
         const target = message.mentions.members.first();
-
 
         if (!target) return message.reply('Please tag user that you want to mute');
         if (target.user.id == message.author.id) return message.reply('You can\'t mute your self');
